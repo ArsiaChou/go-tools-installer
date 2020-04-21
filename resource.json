@@ -1,0 +1,136 @@
+[
+    {
+        "address": "https://github.com/mdempsky/gocode",
+        "path": "github.com/mdempsky/gocode",
+        "install": [
+            "github.com/mdempsky/gocode"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/uudashr/gopkgs",
+        "path": "github.com/uudashr/gopkgs",
+        "install": [
+            "github.com/uudashr/gopkgs/v2/cmd/gopkgs"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/ramya-rao-a/go-outline",
+        "path": "github.com/ramya-rao-a/go-outline",
+        "install": [
+            "github.com/ramya-rao-a/go-outline"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/acroca/go-symbols",
+        "path": "github.com/acroca/go-symbols",
+        "install": [
+            "github.com/acroca/go-symbols"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/golang/tools",
+        "path": "golang.org/x/tools",
+        "install": [
+            "golang.org/x/tools/cmd/guru",
+            "golang.org/x/tools/cmd/gorename"
+        ],
+        "depandences": [
+            {
+                "address": "https://github.com/golang/xerrors",
+                "path": "golang.org/x/xerror"
+            },
+            {
+                "address": "https://github.com/golang/mod",
+                "path": "golang.org/x/mod"
+            }
+        ]
+    },
+    {
+        "address": "https://github.com/cweill/gotests",
+        "path": "github.com/cweill/gotests",
+        "install": [
+            "github.com/cweill/gotests/..."
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/fatih/gomodifytags",
+        "path": "github.com/fatih/gomodifytags",
+        "install": [
+            "github.com/fatih/gomodifytags"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/josharian/impl",
+        "path": "",
+        "install": ["github.com/josharian/impl"],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/davidrjenni/reftools",
+        "path": "github.com/davidrjenni/reftools",
+        "install": [
+            "github.com/davidrjenni/reftools/cmd/fillstruct"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/haya14busa/goplay",
+        "path": "github.com/haya14busa/goplay",
+        "install": [
+            "github.com/haya14busa/goplay/cmd/goplay"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/godoctor/godoctor",
+        "path": "github.com/godoctor/godoctor",
+        "install": ["github.com/godoctor/godoctor"],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/go-delve/delve",
+        "path": "github.com/go-delve/delve",
+        "install": [
+            "github.com/go-delve/delve/cmd/dlv"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/stamblerre/gocode",
+        "path": "github.com/stamblerre/gocode",
+        "install": [
+            "github.com/stamblerre/gocode"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/rogpeppe/godef",
+        "path": "github.com/rogpeppe/godef",
+        "install": [
+            "github.com/rogpeppe/godef"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/sqs/goreturns",
+        "path": "github.com/sqs/goreturns",
+        "install": [
+            "github.com/sqs/goreturns"
+        ],
+        "depandences": []
+    },
+    {
+        "address": "https://github.com/golang/lint",
+        "path": "golang.org/x/lint",
+        "install": [
+            "github.com/golang/lint"
+        ],
+        "depandences": []
+    }
+]
