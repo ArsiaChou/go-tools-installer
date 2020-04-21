@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	confilePath = "resource.json"
+	confilePath = "github.com/arsiac/go-tools-installer/resource.json"
 )
 
 //Depandence Tool 安装需要的依赖包
@@ -62,53 +62,75 @@ func getConfig(path string) (tools []Tool, err error) {
 	return tools, nil
 }
 
-func download(tool Tool) {
-	var cmd *exec.Cmd
-	cmd = exec.Command("git", "clone", tool.Address, tool.Path)
-	result, err := cmd.Output()
+func isExist(path string) bool {
+	_, err := os.Stat(path)
 	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(string(result))
-
-	for _, v := range tool.Depandences {
-		cmd = exec.Command("git", "clone", v.Address, v.Path)
-		result, err = cmd.Output()
-		if err != nil {
-			log.Fatal(err)
+		if os.IsNotExist(err) {
+			fmt.Println("not exist:", path)
+		} else {
+			fmt.Println(err.Error())
 		}
-		fmt.Println(string(result))
+		return false
+	}
+
+	// fmt.Println("exist:", path)
+	return true
+}
+
+func genAbPath(gopath, path string) string {
+	return fmt.Sprint(gopath, "/src/", path)
+}
+
+func download(address, path string) {
+	fmt.Println("download:", address, "to", path)
+	cmd := exec.Command("git", "clone", address, path)
+	output, err := cmd.CombinedOutput()
+
+	if err != nil {
+		if len(output) > 0 {
+			fmt.Println(string(output))
+		}
+		log.Fatal(err)
 	}
 }
 
-func install(tool Tool) {
-	_, err := os.Stat(fmt.Sprint(os.Getenv("GOPATH"), "/src/", tool.Path))
+func install(tool Tool, gopath string) {
+	toolPath := genAbPath(gopath, tool.Path)
 
-	if err != nil {
-		fmt.Println(err.Error())
-		download(tool)
+	if !isExist(toolPath) {
+		download(tool.Address, genAbPath(gopath, tool.Path))
+	}
+
+	for _, v := range tool.Depandences {
+		if !isExist(genAbPath(gopath, v.Path)) {
+			download(v.Address, genAbPath(gopath, v.Path))
+		}
 	}
 
 	for _, v := range tool.Install {
 		cmd := exec.Command("go", "get", "-v", v)
-		result, err := cmd.Output()
+		fmt.Println("install:", v)
+		output, err := cmd.CombinedOutput()
 
 		if err != nil {
+			if len(output) > 0 {
+				fmt.Println(string(output))
+			}
 			log.Fatal(err)
 		}
-
-		fmt.Println(string(result))
 	}
 }
 
 func main() {
-	tools, err := getConfig(confilePath)
+	gopath := os.Getenv("GOPATH")
+	tools, err := getConfig(genAbPath(gopath, confilePath))
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, v := range tools {
-		install(v)
+		install(v, gopath)
 	}
+	fmt.Println("SUCCESS")
 }

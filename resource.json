@@ -5,7 +5,12 @@
         "install": [
             "github.com/mdempsky/gocode"
         ],
-        "depandences": []
+        "depandences": [
+            {
+                "address": "https://github.com/golang/tools",
+                "path": "golang.org/x/tools"
+            }
+        ]
     },
     {
         "address": "https://github.com/uudashr/gopkgs",
@@ -41,7 +46,7 @@
         "depandences": [
             {
                 "address": "https://github.com/golang/xerrors",
-                "path": "golang.org/x/xerror"
+                "path": "golang.org/x/xerrors"
             },
             {
                 "address": "https://github.com/golang/mod",
@@ -68,7 +73,9 @@
     {
         "address": "https://github.com/josharian/impl",
         "path": "",
-        "install": ["github.com/josharian/impl"],
+        "install": [
+            "github.com/josharian/impl"
+        ],
         "depandences": []
     },
     {
@@ -90,7 +97,9 @@
     {
         "address": "https://github.com/godoctor/godoctor",
         "path": "github.com/godoctor/godoctor",
-        "install": ["github.com/godoctor/godoctor"],
+        "install": [
+            "github.com/godoctor/godoctor"
+        ],
         "depandences": []
     },
     {
@@ -129,7 +138,7 @@
         "address": "https://github.com/golang/lint",
         "path": "golang.org/x/lint",
         "install": [
-            "github.com/golang/lint"
+            "golang.org/x/lint"
         ],
         "depandences": []
     }
