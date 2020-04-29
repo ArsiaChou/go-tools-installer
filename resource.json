@@ -138,7 +138,7 @@
         "address": "https://github.com/golang/lint",
         "path": "golang.org/x/lint",
         "install": [
-            "golang.org/x/lint"
+            "golang.org/x/lint/golint"
         ],
         "depandences": []
     }
